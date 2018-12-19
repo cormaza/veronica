@@ -62,7 +62,7 @@
 		</dependency>
 			<dependency>
 			<groupId>com.rolandopalermo.facturacion.ec</groupId>
-			<artifactId>veronica-percistencia</artifactId>
+			<artifactId>veronica-persistence</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
