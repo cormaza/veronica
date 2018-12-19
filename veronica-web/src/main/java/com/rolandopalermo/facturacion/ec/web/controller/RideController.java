@@ -27,6 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -61,8 +62,10 @@ public class RideController {
 				claveAccesoConsultada = respuesta.getClaveAccesoConsultada();
 				File comprobante = File.createTempFile(autorizacion.get().getNumeroAutorizacion(), ".xml");
 				Path path = Paths.get(comprobante.getAbsolutePath());
+				
 				try (BufferedWriter writer = Files.newBufferedWriter(path)) {
 					writer.write(autorizacion.get().getComprobante());
+					
 				}
 				JasperPrint jasperPrint = RIDEGenerator.convertirFacturaARide(
 						autorizacion.get().getNumeroAutorizacion(), autorizacion.get().getFechaAutorizacion(),

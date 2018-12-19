@@ -3,6 +3,7 @@ package com.rolandopalermo.facturacion.ec.web.controller;
 import com.rolandopalermo.facturacion.ec.bo.GeneradorBO;
 import com.rolandopalermo.facturacion.ec.common.exception.InternalServerException;
 import com.rolandopalermo.facturacion.ec.common.exception.VeronicaException;
+import com.rolandopalermo.facturacion.ec.conexion.App;
 import com.rolandopalermo.facturacion.ec.dto.comprobantes.FacturaDTO;
 import com.rolandopalermo.facturacion.ec.dto.comprobantes.GuiaRemisionDTO;
 import com.rolandopalermo.facturacion.ec.dto.comprobantes.RetencionDTO;
@@ -82,5 +83,12 @@ public class GeneracionController {
         }
         return new ResponseEntity<ByteArrayResponseDTO>(new ByteArrayResponseDTO(content), HttpStatus.OK);
     }
+    @PostMapping(value = "/conectar")
+    public ResponseEntity<String> conctar () {
+    	App a = new App();
+    	return new ResponseEntity<String>(a.conectar(), HttpStatus.OK);
+		
+    }
+    
 
 }
